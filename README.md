@@ -24,6 +24,7 @@ Here is a quickstart for a search request
 
 ```js
 const ItemsAPI = require('itemsapi')
+
 (async () => {
   const client = new ItemsAPI({
     host: 'http://127.0.0.1:3000'
@@ -51,7 +52,7 @@ const ItemsAPI = require('itemsapi')
 
 - Make a search request:
 
-`client.getIndex().search(input)`
+`await client.getIndex().search(input)`
 
 ### Index 
 
@@ -63,15 +64,15 @@ const ItemsAPI = require('itemsapi')
 
 - Add items:
 
-`index.addItems()`
+`await index.addItems(items)`
 
 ### Configuration
 
 - Get configuration:
 
-`index.getConfig()`
+`await index.getConfig()`
 
 - Update configuration:
 
-`index.updateConfig(config)`
+`await index.updateConfig(config)`
 
