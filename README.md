@@ -34,7 +34,7 @@ const ItemsAPI = require('itemsapi')
 
   let response = await index.updateConfig(config);
   response = await index.addItems(items);
-  response = await await index.search({
+  response = await index.search({
     per_page: 3,
     filters: {
       tags: ['epic']
@@ -52,7 +52,11 @@ const ItemsAPI = require('itemsapi')
 
 - Make a search request:
 
-`await client.getIndex().search(input)`
+`await index.search(input)`
+
+- List filters for specific facet:
+
+`await index.facet(input)`
 
 ### Index 
 
@@ -65,6 +69,23 @@ const ItemsAPI = require('itemsapi')
 - Add items:
 
 `await index.addItems(items)`
+
+- Get item:
+
+`await index.getItem(id)`
+
+- Update item partially:
+
+`await index.partialUpdateItem(id, data)`
+
+- Update item:
+
+`await index.updateItem(id, data)`
+
+- Delete item:
+
+`await index.deleteItem(id)`
+
 
 ### Configuration
 

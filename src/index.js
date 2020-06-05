@@ -22,8 +22,35 @@ class Index extends AxiosWrapper {
     })
   }
 
+  facet(data) {
+
+    return this.instance.get('/facet', {
+      params: data
+    })
+  }
+
+  aggregation(data) {
+    return this.facet(data);
+  }
+
   addItems(data) {
     return this.instance.post('/items', data);
+  }
+
+  getItem(id) {
+    return this.instance.get(`/items/${id}`);
+  }
+
+  updateItem(id, data) {
+    return this.instance.post(`/items/${id}/update`, data);
+  }
+
+  partialUpdateItem(id, data) {
+    return this.instance.post(`/items/${id}/partial`, data);
+  }
+
+  deleteItem(id) {
+    return this.instance.delete(`/items/${id}`);
   }
 
   //addItemsFromFile(data) {
