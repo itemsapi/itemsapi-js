@@ -1,7 +1,7 @@
 const assert = require('assert');
 
 
-const ItemsAPI = require('../src/client');
+const ItemsAPI = require('../');
 const client = new ItemsAPI({
   host: 'http://127.0.0.1:3001'
 });
@@ -9,6 +9,7 @@ const client = new ItemsAPI({
 const index = client.getIndex();
 
 const config = {
+  sorting_fields: ['votes'],
   aggregations: {
     director: {
       conjunction: true
@@ -86,5 +87,21 @@ describe('search', function() {
     result = await index.getItem(1);
     assert.deepEqual(result.name, undefined);
     assert.deepEqual(result.votes, 100);
+
+
+    result = await index.search({
+      sort_field: 'votes',
+      order: 'asc',
+      per_page: 100
+    });
+    assert.deepEqual(result.pagination.total, 19);
+    assert.deepEqual(result.data.items.length, 19);
+    assert.deepEqual(result.data.items[0].votes, 100);
+
+    //result = await index.getItem(1);
+    //assert.deepEqual(result.name, 'The Shawshank Redemption');
+    //assert.deepEqual(result.votes, 100);
+    //console.log(result.data.items);
+
   });
 });

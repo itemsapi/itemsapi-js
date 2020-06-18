@@ -1,10 +1,10 @@
 {
   "name": "itemsapi",
-  "version": "2.0.4",
+  "version": "2.0.6",
   "description": "Javascript client for ItemsAPI",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -b --exit tests/*"
   },
   "repository": {
     "type": "git",
