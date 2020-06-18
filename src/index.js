@@ -34,7 +34,13 @@ class Index extends AxiosWrapper {
   }
 
   addItems(data) {
-    return this.instance.post('/items', data);
+    return this.instance({
+      method: 'post',
+      url: '/items',
+      data: data,
+      maxContentLength: Infinity,
+      maxBodyLength: Infinity
+    });
   }
 
   getItem(id) {

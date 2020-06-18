@@ -1,6 +1,6 @@
 {
   "name": "itemsapi",
-  "version": "2.0.6",
+  "version": "2.0.8",
   "description": "Javascript client for ItemsAPI",
   "main": "index.js",
   "scripts": {
