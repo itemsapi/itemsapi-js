@@ -14,12 +14,7 @@ class Index extends AxiosWrapper {
   search(data) {
 
     data.facets_fields = data.facets_fields ? data.facets_fields.join(',') : undefined;
-    data.filters = data.filters ? JSON.stringify(data.filters) : undefined;
-    data.not_filters = data.not_filters ? JSON.stringify(data.not_filters) : undefined;
-
-    return this.instance.get('/search', {
-      params: data
-    })
+    return this.instance.post('/search', data)
   }
 
   facet(data) {

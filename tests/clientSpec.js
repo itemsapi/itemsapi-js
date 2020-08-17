@@ -46,12 +46,14 @@ describe('search', function() {
     result = await index.search({
       per_page: 3,
       filters: {
-        tags: ['epic']
+        tags: ['wizard']
       },
       facets_fields: ['tags']
     });
     console.log(result);
-    assert.deepEqual(result.pagination.total, 20);
+    assert.deepEqual(result.pagination.total, 1);
+    assert.deepEqual(result.pagination.per_page, 3);
+    assert.deepEqual(Object.keys(result.data.aggregations), ['tags']);
 
     result = await index.getConfig();
     console.log(result);
@@ -72,6 +74,7 @@ describe('search', function() {
     result = await index.search({
     });
     assert.deepEqual(result.pagination.total, 19);
+    assert.deepEqual(Object.keys(result.data.aggregations), ['actors', 'director', 'genres', 'tags']);
 
     result = await index.partialUpdateItem(1, {
       votes: 1000000
