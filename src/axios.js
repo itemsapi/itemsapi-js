@@ -12,6 +12,13 @@ class AxiosWrapper {
     });
 
     this.instance.interceptors.response.use((response) => response.data);
+    this.instance.interceptors.request.use(data => {
+      data.params = {
+        api_key: config.api_key,
+        ...data.params,
+      };
+      return data;
+    });
   }
 }
 

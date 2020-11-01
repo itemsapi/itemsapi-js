@@ -12,8 +12,8 @@ class ItemsAPI extends AxiosWrapper {
     this.config = config;
   }
 
-  getIndex() {
-    return new Index(this.config);
+  getIndex(name) {
+    return new Index(name, this.config);
   }
 }
 
