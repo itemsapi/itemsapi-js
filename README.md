@@ -27,10 +27,12 @@ const ItemsAPI = require('itemsapi')
 
 (async () => {
   const client = new ItemsAPI({
-    host: 'http://127.0.0.1:3000'
+    host: 'http://127.0.0.1:3000',
+    // if needed
+    api_key: 'keykey135'
   })
 
-  const index = client.getIndex();
+  const index = client.getIndex(name);
 
   let response = await index.updateConfig(config);
   response = await index.addItems(items);
@@ -62,7 +64,7 @@ const ItemsAPI = require('itemsapi')
 
 - Get index object:
 
-`client.getIndex()`
+`client.getIndex(name)`
 
 ### Items
 
