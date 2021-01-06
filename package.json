@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/itemsapi/itemsapi-js#readme",
   "dependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.21.1"
   },
   "devDependencies": {
     "mocha": "^7.2.0"
